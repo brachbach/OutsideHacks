@@ -1,7 +1,7 @@
 const pgp = require('pg-promise')();
 
 if (process.env.SERVER === 'deployed') {
-  const env = require('../../.env');
+  const env = require('../.env');
   var clientLink = {
     user: 'outsidehacks',
     database: 'outsidehacks',
