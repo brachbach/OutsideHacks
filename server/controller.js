@@ -10,7 +10,8 @@ exports.postLocation = (req, res) => {
 }
 
 exports.getAllData = (req, res, next) => {
-  const currentTime = new Date().getTime();
+  // const currentTime = new Date().getTime(); //TODO: switch back to actually generating the time for non-demo
+  const currentTime = 1469330301930; 
   const cutoffTime = currentTime - 30000;
   params = { cutoffTime };
   queries.readAllData(params, (err, response) => {
@@ -18,8 +19,8 @@ exports.getAllData = (req, res, next) => {
       console.error(err);
       next();
     } else {
-      const allData = analyzeLocations(response);
-      res.status(200).json(allData);
+      const allLocations = analyzeLocations(response);
+      res.status(200).json({accesibility: allLocations});
     }
   })
 }
