@@ -9,5 +9,5 @@ CREATE TABLE location (
  lat VARCHAR(255),
  long VARCHAR(255),
  ip VARCHAR(255),
- time VARCHAR(255)
+ time bigint
 );

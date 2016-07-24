@@ -10,7 +10,10 @@ exports.postLocation = (req, res) => {
 }
 
 exports.getAllData = (req, res, next) => {
-  queries.readAllData((err, response) => {
+  const currentTime = new Date().getTime();
+  const cutoffTime = currentTime - 30000;
+  params = { cutoffTime };
+  queries.readAllData(params, (err, response) => {
     if (err) {
       console.error(err);
       next();

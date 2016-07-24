@@ -6,8 +6,8 @@ exports.writeLocation = params => {
     .catch(err => console.error(err));
 }
 
-exports.readAllData = cb => {
-  db.many("SELECT lat, long, time FROM location")
+exports.readAllData = (params, cb) => {
+  db.any("SELECT lat, long, time FROM location WHERE time > ${cutoffTime}", params)
     .then(response => cb(null, response))
     .catch(err => cb(err, null));
 }
