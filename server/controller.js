@@ -2,6 +2,8 @@ const queries = require('./queries.js');
 const analyzeLocations = require('./analyzeLocations.js');
 
 exports.postLocation = (req, res) => {
+  console.log(req.body);
+  console.log(req.body.location);
   res.status(204).send();
   const time = new Date().getTime()
   const {lat, long} = req.body.coordinates;
